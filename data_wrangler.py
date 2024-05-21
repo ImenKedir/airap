@@ -20,7 +20,7 @@ def convert_mp3s_to_tensors(folder_paths):
         print(f"Converting MP3 files in {mp3_folder_path} to tensors...")
         for filename in tqdm(os.listdir(mp3_folder_path)):
             # Check if the file is an MP3
-            if filename.endswith('.mp3'):
+            if filename.endswith('.wav'):
                 # Construct the full path to the input MP3 file
                 mp3_path = os.path.join(mp3_folder_path, filename)
                 
@@ -29,16 +29,15 @@ def convert_mp3s_to_tensors(folder_paths):
                 waveform = waveform.mean(dim=0, keepdim=True) 
                 
                 # Construct the full path to the output tensor file
-                tensor_filename = filename.replace('.mp3', '.pt')
-                tensor_path = os.path.join('/Users/imenkedir/dev/airap/data', tensor_filename)
+                tensor_filename = filename.replace('.wav', '.pt')
+                tensor_path = os.path.join(output_folder_path, tensor_filename)
                 
                 # Save the tensor to the output path
+                print(f"Saving tensor to {tensor_path}")
                 torch.save(waveform, tensor_path)
 
 # Example usage:
 folder_paths = [
-    '/Users/imenkedir/Desktop/music/acapellas/Juesswork - Acapella Stash Vol. 1',
-    '/Users/imenkedir/Desktop/music/acapellas/Juesswork - Acapella Stash Vol. 2',
-    '/Users/imenkedir/Desktop/music/acapellas/Juesswork - Acapella Stash Vol. 3',
+    '/Users/imenkedir/dev/airap/data',
 ]  # Replace with the paths to your MP3 folders
 convert_mp3s_to_tensors(folder_paths)

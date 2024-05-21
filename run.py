@@ -34,7 +34,7 @@ dataset = LazyLoadedAndEncodedAudioDataset('/home/imenkedir/airap/simple_data', 
 from trainer import Trainer
 trainer = Trainer(config, model, dataset)
 
-from tracker import LossTracker
+from trainer import LossTracker
 tracker = LossTracker()
 def on_iteration(self):
     stats = tracker.update(self.iter_num, self.loss)

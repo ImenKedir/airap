@@ -17,7 +17,6 @@ def process_tensors(source_dir, target_dir):
 
     # Iterate over all files in the source directory
     for filename in os.listdir(source_dir):
-        if filename == '95 BPM - 6ix9ine - RONDO (Feat. Young Thug & Tory Lanez).pt':
             print(f"On: {filename}")
             source_path = os.path.join(source_dir, filename)
             

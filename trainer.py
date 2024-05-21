@@ -7,7 +7,7 @@ import time
 from collections import defaultdict
 
 import torch
-from torch.utils.data.dataloader import DataLoade
+from torch.utils.data.dataloader import DataLoader
 
 class LossTracker:
     def __init__(self, max_len=10000):
